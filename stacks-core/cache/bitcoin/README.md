@@ -38,7 +38,7 @@ jobs:
     steps:
       - name: Check Cache
         id: check_cache
-        uses: stacks-network/actions/stacks-core/cache/bitcoin@main
+        uses: CharlieC3/stacks-actions/stacks-core/cache/bitcoin@fix/cache-input-action
 ```
 
 ### Restore Cache
@@ -53,7 +53,7 @@ jobs:
     steps:
       - name: Restore Cargo Cache
         id: restore_cache
-        uses: stacks-network/actions/stacks-core/cache/bitcoin@main
+        uses: CharlieC3/stacks-actions/stacks-core/cache/bitcoin@fix/cache-input-action
         with:
           cache-action: restore
 ```
@@ -70,7 +70,7 @@ jobs:
     steps:
       - name: Save Cargo Cache
         id: save_cache
-        uses: stacks-network/actions/stacks-core/cache/bitcoin@main
+        uses: CharlieC3/stacks-actions/stacks-core/cache/bitcoin@fix/cache-input-action
         with:
           cache-action: save
 ```

@@ -34,7 +34,7 @@ jobs:
     steps:
       - name: Check Cache
         id: check_cache
-        uses: stacks-network/actions/stacks-core/cache/target@main
+        uses: CharlieC3/stacks-actions/stacks-core/cache/target@fix/cache-input-action
 ```
 
 ### Restore Cache
@@ -49,7 +49,7 @@ jobs:
     steps:
       - name: Restore Cache
         id: restore_cache
-        uses: stacks-network/actions/stacks-core/cache/target@main
+        uses: CharlieC3/stacks-actions/stacks-core/cache/target@fix/cache-input-action
         with:
           cache-action: restore
 ```
@@ -66,7 +66,7 @@ jobs:
     steps:
       - name: Save Cache
         id: save_cache
-        uses: stacks-network/actions/stacks-core/cache/target@main
+        uses: CharlieC3/stacks-actions/stacks-core/cache/target@fix/cache-input-action
         with:
           cache-action: save
 ```

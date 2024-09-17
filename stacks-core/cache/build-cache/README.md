@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Test Archives
         id: test-archives
-        uses: stacks-network/actions/stacks-core/cache/build-cache@main
+        uses: CharlieC3/stacks-actions/stacks-core/cache/build-cache@fix/cache-input-action
 ```
 
 ### Genesis Tests
@@ -36,7 +36,7 @@ jobs:
     steps:
       - name: Test Archives
         id: test-archives
-        uses: stacks-network/actions/stacks-core/cache/build-cache@main
+        uses: CharlieC3/stacks-actions/stacks-core/cache/build-cache@fix/cache-input-action
         with:
           genesis: true
 ```
