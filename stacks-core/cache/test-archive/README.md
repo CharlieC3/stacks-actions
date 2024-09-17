@@ -55,7 +55,7 @@ jobs:
         id: restore_cache
         uses: stacks-network/actions/stacks-core/cache/test-archive@main
         with:
-          action: restore
+          cache-action: restore
 ```
 
 ### Save Cache
@@ -72,5 +72,5 @@ jobs:
         id: save_cache
         uses: stacks-network/actions/stacks-core/cache/test-archive@main
         with:
-          action: save
+          cache-action: save
 ```

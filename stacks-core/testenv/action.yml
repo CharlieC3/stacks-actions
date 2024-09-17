@@ -41,21 +41,21 @@ runs:
       id: restore_cargo_cache
       uses: stacks-network/actions/stacks-core/cache/cargo@main
       with:
-        action: restore
+        cache-action: restore
 
     ## Restore nextest target cache data
     - name: Restore Target Cache
       id: restore_target_cache
       uses: stacks-network/actions/stacks-core/cache/target@main
       with:
-        action: restore
+        cache-action: restore
 
     ## Restore bitcoin cache data
     - name: Restore Bitcoin Binary Cache
       id: restore_bitcoin_cache
       uses: stacks-network/actions/stacks-core/cache/bitcoin@main
       with:
-        action: restore
+        cache-action: restore
         btc-version: ${{ inputs.btc-version }}
 
     ## Symlink bitoind to $PATH
@@ -73,7 +73,7 @@ runs:
       id: restore_test_cache
       uses: stacks-network/actions/stacks-core/cache/test-archive@main
       with:
-        action: restore
+        cache-action: restore
 
     ## Restore nextest genesis test archive cache data
     - name: Restore Genesis Test Archive Cache
@@ -82,4 +82,4 @@ runs:
       id: restore_genesis_test_cache
       uses: stacks-network/actions/stacks-core/cache/genesis-test-archive@main
       with:
-        action: restore
+        cache-action: restore

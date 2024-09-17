@@ -58,7 +58,7 @@ runs:
       id: restore_cargo_cache
       uses: stacks-network/actions/stacks-core/cache/cargo@main
       with:
-        action: restore
+        cache-action: restore
 
     - name: Build and Archive Tests
       if: |
@@ -106,7 +106,7 @@ runs:
       id: save_target_cache
       uses: stacks-network/actions/stacks-core/cache/target@main
       with:
-        action: save
+        cache-action: save
 
     - name: Cache Test Archive
       if: |
@@ -116,7 +116,7 @@ runs:
       id: save_nextest_cache
       uses: stacks-network/actions/stacks-core/cache/test-archive@main
       with:
-        action: save
+        cache-action: save
 
     - name: Cache Genesis Archive
       if: |
@@ -126,4 +126,4 @@ runs:
       id: save_genesis_cache
       uses: stacks-network/actions/stacks-core/cache/genesis-test-archive@main
       with:
-        action: save
+        cache-action: save
