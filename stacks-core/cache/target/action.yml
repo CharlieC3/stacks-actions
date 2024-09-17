@@ -5,7 +5,7 @@ branding:
   color: "gray-dark"
 
 inputs:
-  action:
+  cache-action:
     description: "Type of operation (check,restore,save)"
     required: false
     default: "check"
@@ -37,7 +37,7 @@ runs:
     ## Check if cache data exists
     - name: Check Cache
       if: |
-        inputs.action == 'check'
+        inputs.cache-action == 'check'
       uses: actions/cache@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
       id: check_cache
       with:
@@ -49,7 +49,7 @@ runs:
     ## Use wretry action, to retry on a failed upload
     - name: Restore Cache
       if: |
-        inputs.action == 'restore'
+        inputs.cache-action == 'restore'
       id: restore_cache
       uses: Wandalen/wretry.action@6feedb7dedadeb826de0f45ff482b53b379a7844 # v3.5.0
       with:
@@ -65,7 +65,7 @@ runs:
     ## Use wretry action to retry on a failed upload
     - name: Save Cache
       if: |
-        inputs.action == 'save'
+        inputs.cache-action == 'save'
       id: save_cache
       uses: Wandalen/wretry.action@6feedb7dedadeb826de0f45ff482b53b379a7844 # v3.5.0
       with:
