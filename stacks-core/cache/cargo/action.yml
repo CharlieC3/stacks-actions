@@ -56,19 +56,15 @@ runs:
       if: |
         inputs.cache-action == 'restore'
       id: restore_cache
-      uses: Wandalen/wretry.action@6feedb7dedadeb826de0f45ff482b53b379a7844 # v3.5.0
+      uses: actions/cache/restore@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
       with:
-        action: actions/cache/restore@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
-        with: |
-          fail-on-cache-miss: ${{ inputs.fail-on-cache-miss }}
-          path: |
-            ~/.cargo/bin/
-            ~/.cargo/registry/index/
-            ~/.cargo/registry/cache/
-            ~/.cargo/git/db/
-          key: ${{ inputs.cache-key }}
-        attempt_limit: ${{ inputs.retries}}
-        attempt_delay: ${{ inputs.retry-delay}}
+        fail-on-cache-miss: ${{ inputs.fail-on-cache-miss }}
+        path: |
+          ~/.cargo/bin/
+          ~/.cargo/registry/index/
+          ~/.cargo/registry/cache/
+          ~/.cargo/git/db/
+        key: ${{ inputs.cache-key }}
 
     ## Restore cache data
     ## If cache is not found, install nextest
@@ -98,15 +94,11 @@ runs:
         inputs.cache-action == 'save' &&
         steps.check_cache.outputs.cache-hit != 'true'
       id: save_cache
-      uses: Wandalen/wretry.action@6feedb7dedadeb826de0f45ff482b53b379a7844 # v3.5.0
+      uses: actions/cache/save@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
       with:
-        action: actions/cache/save@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4.0.2
-        with: |
-          path: |
-            ~/.cargo/bin/
-            ~/.cargo/registry/index/
-            ~/.cargo/registry/cache/
-            ~/.cargo/git/db/
-          key: ${{ inputs.cache-key }}
-        attempt_limit: ${{ inputs.retries}}
-        attempt_delay: ${{ inputs.retry-delay}}
+        path: |
+          ~/.cargo/bin/
+          ~/.cargo/registry/index/
+          ~/.cargo/registry/cache/
+          ~/.cargo/git/db/
+        key: ${{ inputs.cache-key }}
